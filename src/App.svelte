@@ -3,12 +3,22 @@
   let noButton;
   let count = 0;
   let height, width;
+  let noAlerts = [
+    "I think you pressed wrong button",
+    "Why ? 😥",
+    "But why ? ",
+    "Are you sure ?",
+  ];
 
   function changePos() {
+    if(count>=3){
+      alert(noAlerts[Math.floor(Math.random()* noAlerts.length)])
+    }
     count += 1;
     noButton.style.position = "absolute";
     noButton.style.top = Math.floor(Math.random() * height) + "px";
     noButton.style.left = Math.floor(Math.random() * width) + "px";
+    
   }
 
   function yesButton() {
@@ -16,7 +26,7 @@
   }
 </script>
 
-<svelte:window bind:innerHeight={height} bind:innerWidth={width}/>
+<svelte:window bind:innerHeight={height} bind:innerWidth={width} />
 
 <main>
   <div class="main-div">
