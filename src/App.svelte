@@ -44,8 +44,6 @@
     display: block;
     padding: 10px;
   }
-
-
   #no{
     position: absolute;
   }
