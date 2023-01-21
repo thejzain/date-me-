@@ -1,20 +1,22 @@
 <script>
   let cat = "https://media.tenor.com/zGm5acSjHCIAAAAC/cat-begging.gif";
   let noButton;
-  let count = 0
+  let count = 0;
+  let height, width;
 
-  function changePos(){
-    count += 1
-    noButton.style.position= "absolute"
-    noButton.style.top = Math.floor(Math.random()*1000) + "px"
-    noButton.style.left = Math.floor(Math.random()*1000) + "px"
-    console.log(count)
+  function changePos() {
+    count += 1;
+    noButton.style.position = "absolute";
+    noButton.style.top = Math.floor(Math.random() * height) + "px";
+    noButton.style.left = Math.floor(Math.random() * width) + "px";
   }
 
-  function yesButton(){
-    alert("I love you .............. ><")
+  function yesButton() {
+    alert("I love you .............. ><");
   }
 </script>
+
+<svelte:window bind:innerHeight={height} bind:innerWidth={width}/>
 
 <main>
   <div class="main-div">
@@ -22,7 +24,9 @@
     <img src={cat} alt="cat" />
     <div class="container">
       <button id="yes" on:click={yesButton}>Yes</button>
-      <button id="no" bind:this={noButton} on:focus on:mouseover={changePos} >No</button>
+      <button id="no" bind:this={noButton} on:focus on:mouseover={changePos}
+        >No</button
+      >
     </div>
   </div>
 </main>
@@ -44,7 +48,7 @@
     display: block;
     padding: 10px;
   }
-  #no{
+  #no {
     position: absolute;
   }
 </style>
